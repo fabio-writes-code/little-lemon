@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&family=Markazi+Text:wght@400;500&display=swap');
+
+$markazi: 'Markazi Text', serif;
+$karla: 'Karla', sans-serif;
+
+
+$primary1: #495E57;
+$primary2: #F4CE14;
+$secondary1: #EE9972;
+$secondary2: #FBDABB;
+$highlight1: #ECEEED;
+$highlight2: #333333;
+
+
+@mixin display-title{
+  font-family: $markazi;
+  color:$primary2;
+  font-weight:400 ;
+  font-size: 3em;
+}
+
+@mixin sub-title{
+  font-family: $markazi;
+  color:$highlight1;
+  font-weight:400 ;
+  font-size: 2em;
+}
+
+
+
+@mixin section-title{
+  font-family: $karla;
+  font-weight:800;
+  font-size: 16pt;
+  color:$highlight2
+}
+
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+.contain{
+
+  font-family: $karla;
+
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr 200px;
+  grid-auto-rows: minmax(150px, auto);
+  grid-template-areas: 'header nav' 'main main' 'footer footer';
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  justify-self: center;
+  max-width: 1440px;
+}
+
+/* body  *{
+  padding:0;
+  margin: 0;
+} */
+
+
+
+header{
+  margin: auto;
+  grid-area: header;
+}
+
+nav{
+  padding: 0;
+  grid-area: nav;
+  margin: auto;
+}
+
+nav > ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+nav > ul li{
+  @include section-title;
+  padding: 0 1em 0 1em;
+}
+
+main{
+  grid-area: main;
+  margin: auto;
+}
+
+footer{
+  grid-area: footer;
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  justify-content: center;
+  background-color: $primary1;
+  color:$highlight1;
+}
+
+footer > *{
+  margin: auto;
+}
+footer ul{
+  padding: 0;
+  list-style-type: none;
+}
+
+footer ul li:first-child {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+footer > div > h1{
+  @include display-title;
+  margin: 0;
+  padding:0;
+}
+
+footer > div > h2{
+  @include sub-title;
+  margin: 0;
+  padding:0;
+  transform: translateY(-0.5em);
+}

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
 
 // Components
@@ -9,11 +9,14 @@ import Nav from './components/Nav';
 
 function App() {
   return (
-    <React.Fragment className="App">
-      <Header />
-      <Nav />
-      <Main />
-      <Footer />
+    <React.Fragment>
+      <div className="contain">
+
+        <Header />
+        <Nav />
+        <Main/>
+        <Footer />
+      </div>
     </React.Fragment>
   );
 }

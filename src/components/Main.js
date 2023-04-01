@@ -1,8 +1,11 @@
 import React from 'react'
 
+
 const Main = () => {
   return (
-    <main></main>
+    <main>
+      <h1>Main</h1>
+    </main>
   )
 }
 
