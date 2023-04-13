@@ -1,0 +1,55 @@
+$markazi: 'Markazi Text', serif;
+$karla: 'Karla', sans-serif;
+
+$green: #495E57;
+$yellow: #F4CE14;
+$pink: #EE9972;
+$lightpink: #FBDABB;
+$lightgray: #ECEEED;
+$darkgray: #333333;
+
+
+@mixin display-title{
+  font-family: $markazi;
+  color:$yellow;
+  font-weight:400 ;
+  font-size: 3em;
+  margin: 0;
+  padding:0;
+  padding-top: 0.5em;
+}
+
+@mixin sub-title{
+  font-family: $markazi;
+  color:$lightgray;
+  font-weight:400 ;
+  font-size: 2em;
+  margin: 0;
+  padding:0;
+}
+
+@mixin section-title{
+  font-family: $karla;
+  font-weight:800;
+  font-size: 16pt;
+  color:$darkgray;
+}
+
+@mixin paragraph{
+  font-family: $karla;
+  font-weight: 400;
+  font-size:14pt;
+  color:$lightgray;
+}
+
+@mixin btn{
+  background-color: $yellow;
+  font-family: $karla;
+  @include paragraph();
+  font-weight: bold;
+  color:$darkgray;
+  padding: 0.8rem 2.2rem;
+  border-radius: 10px;
+  border:none;
+  cursor:pointer;
+}

@@ -1,0 +1,24 @@
+@import 'styles';
+
+
+.testimonialCard{
+  position: relative;
+  background-color: $lightgray;
+  
+  display: flex;
+  flex-direction: column;
+
+  max-width: 16em;
+  padding:1em 2em 1em 2em;
+  border-radius: 16px;
+
+  justify-content: center;
+
+  img{
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    align-self: center;
+  }
+
+
+}

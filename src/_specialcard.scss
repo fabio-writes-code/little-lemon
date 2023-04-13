@@ -1,0 +1,52 @@
+@import 'styles';
+
+.specialcard{
+  position: relative;
+  // grid-area: card;
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4,auto);
+  grid-auto-rows: minmax(10px, 10px);
+  grid-template-areas: 'img img' 'title price' 'desc desc' 'order icon';
+
+  background-color: $lightgray;
+  
+  max-width: 20em;
+  padding:1em 1em 1em 1em;
+  border-radius: 16px;
+
+
+  img{
+    grid-area: img;
+    justify-self: center;
+    min-width: 18em;
+    max-width: 18em;
+    border-radius:16px;
+    aspect-ratio: 1.2/1;
+    object-fit: cover;
+  }
+
+  h3{
+    font-size: 1em;
+  }
+
+  .dishName{grid-area: title;}
+  .price{
+    grid-area: price;
+    text-align: right;
+    color:#FF0000 ;
+  }
+  p{grid-area: desc;}
+  .order{grid-area: order;}
+
+  img{
+    width: 15em;
+    max-width: 15em;
+  }
+
+  *{
+    padding: 0;
+    margin:0 0 1em 0;
+  }
+}

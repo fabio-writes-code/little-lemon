@@ -1,18 +1,23 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Menu</li>
-        <li>Reservations</li>
-        <li>Order Online</li>
-        <li>Login</li>
-      </ul>
-    </nav>
+    <React.Fragment>
+      <nav>
+        <ul className='menu'>
+          
+          <li><NavLink to ='home'>Home</NavLink></li>
+          <li><NavLink to ='about'>About</NavLink></li>
+          <li><NavLink to ='menu'>Menu</NavLink></li>
+          <li><NavLink to ='reservations'>Reservations</NavLink></li>
+          <li><NavLink to ='order-online'>Order Online</NavLink></li>
+          <li><NavLink to ='login'>Login</NavLink></li>
+        </ul>
+      </nav>
+      
+    </React.Fragment>
   )
-}
+  }
 
 export default Nav
