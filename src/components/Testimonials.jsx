@@ -28,7 +28,7 @@ const Testimonials = () => {
     <div className='testimonials'>
       <h1>Testimonials</h1>
       <div className="cards">
-        {testimonials.map(t=><TestimonialCard username={t.username} img={t.img} testimonial={t.testimonial} numStars={t.stars}/>)}
+        {testimonials.map(t=><TestimonialCard id={t.username} username={t.username} img={t.img} testimonial={t.testimonial} numStars={t.stars}/>)}
       </div>
     </div>
   )

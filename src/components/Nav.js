@@ -6,18 +6,18 @@ const Nav = () => {
     <React.Fragment>
       <nav>
         <ul className='menu'>
-          
-          <li><NavLink to ='home'>Home</NavLink></li>
-          <li><NavLink to ='about'>About</NavLink></li>
-          <li><NavLink to ='menu'>Menu</NavLink></li>
-          <li><NavLink to ='reservations'>Reservations</NavLink></li>
-          <li><NavLink to ='order-online'>Order Online</NavLink></li>
-          <li><NavLink to ='login'>Login</NavLink></li>
+
+          <li><NavLink to='home'>Home</NavLink></li>
+          <li><NavLink to='about'>About</NavLink></li>
+          <li><NavLink to='menu'>Menu</NavLink></li>
+          <li><NavLink to='bookings'>Book</NavLink></li>
+          <li><NavLink to='order-online'>Order Online</NavLink></li>
+          <li><NavLink to='login'>Login</NavLink></li>
         </ul>
       </nav>
-      
+
     </React.Fragment>
   )
-  }
+}
 
 export default Nav

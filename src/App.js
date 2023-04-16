@@ -12,6 +12,7 @@ import Homepage from './components/Homepage';
 import CallToAction from './components/CallToAction';
 import BookingPage from './components/BookingPage';
 import Specials from './components/Specials';
+import ConfirmBooking from './components/ConfirmBooking';
 
 
 
@@ -24,10 +25,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Main/>} />
           <Route path="About" element={<About/>} />
-          <Route path="BookingPage" element={<BookingPage/>} />
+          <Route path="bookings" element={<BookingPage/>} />
           <Route path="CallToAction" element={<CallToAction/>} />
           <Route path="home" element={<Main/>} />
           <Route path="Specials" element={<Specials/>} />
+          <Route path='booking-confirmation' element={<ConfirmBooking/>}/>
         </Routes>
         <Footer />
       </div>
