@@ -4,6 +4,7 @@
 @import 'styles';
 @import 'specialcard';
 @import 'testimonialcard';
+@import 'book';
 
 $markazi: 'Markazi Text', serif;
 $karla: 'Karla', sans-serif;
@@ -33,7 +34,7 @@ $darkgray: #333333;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  width: 100%;
+  // width: 100%;
   height: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -135,6 +136,7 @@ footer > div > h2{
 }
 
 .specials{
+  width: 1440px;
   display: grid;
   grid-template-rows: 2 auto;
   grid-template-columns: 3 auto;

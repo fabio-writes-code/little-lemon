@@ -1,68 +1,81 @@
+import { useFormik } from 'formik'
 import React from 'react'
-import { useState } from 'react'
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from 'react-toastify'
+import * as Yup from 'yup'
+
 
 const BookingForm = ({availableTimes,dateChange, submitForm}) => {
-  const [date, setDate]=useState('yyyy-MM-dd')
 
-  const [time,setTime]=useState('Choose Time')
-  const [guests, setGuests]=useState(0)
-  const [occasion, setOccasion]=useState('Chose Occasion')
+  const formik=useFormik({
+    initialValues:{
+      date:'',
+      time:'',
+      guests:0,
+      occasion:''
+    },
+    onSubmit: values => {
+      toast.success('Booked')
+      console.log(formik.errors)
+      const dataForm = [values]
+      submitForm(dataForm)
+    },
+    validationSchema: Yup.object({
+      date:Yup.string().required('required'),
+      time:Yup.string().required('required'),
+      guests:Yup.number().integer().required().min(1),
+      occasion:Yup.string().required()
+    })
+  })
 
-  const getIsFormValid =()=>{
-    if(!date) return false
-    if (time==='Choose Time') return false
-    if (guests===0) return false
-    if (occasion==='Choose Occasion') return false
-    return true;
-  }
-
-  const clearForm=()=>{
-    setDate('')
-    setTime('Choose Time')
-    setGuests(0)
-    setOccasion('Choose Occasion')
-  }
-
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    console.log(date, time, guests, occasion)
-    clearForm()
-    const dataForm=[date,time, guests, occasion]
-    submitForm(dataForm)    
-  }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} style={{display: 'grid', maxWidth: '200px', gap: '20px'}}>
+    <div className='booking-form'>
+      <h1>Book a Table!</h1>
+      <form onSubmit={formik.handleSubmit} style={{display: 'grid', maxWidth: '200px', gap: '20px'}}>
       <label htmlFor="res-date">Choose date</label>
-      <input 
+      <input
+        aria-label='onClick' 
         type="date" 
-        id="res-date"
+        id="date"
         data-testid='res-date'
-        value = {date}
-        onChange={e=>{
-          dateChange();
-          setDate(e.target.value)
+        {...formik.getFieldProps('date')}
+        onChange={(e)=>{
+            dateChange()
+            formik.handleChange(e)
+          }
         }
-      }
       />
+      {formik.errors.date && formik.touched.date && <div className='alert alert-danger'>{formik.errors.date}</div>}
       <label htmlFor="res-time">Choose time</label>
       <select 
         data-testid="res-time"
-        value={time}
-        onChange={e=>setTime(e.target.value)}
+        {...formik.getFieldProps('time')}
       >
         {availableTimes.map(at=> <option key={at} value ={at}>{at}</option>)} 
       </select>
+      {formik.errors.time && formik.touched.time && <div className='alert alert-danger'>{formik.errors.time}</div>}
       <label htmlFor="guests">Number of guests</label>
-      <input value={guests} onChange={e=>setGuests(e.target.value)} type="number" placeholder="1" min="1" max="10" id="guests"/>
+      <input 
+        type="number" 
+        placeholder="1" 
+        min="1" 
+        max="10" 
+        id="guests"
+        {...formik.getFieldProps('guests')}
+      />
+      {formik.errors.guests && formik.touched.guests && <div className='alert alert-danger'>{formik.errors.guests}</div>}
       <label htmlFor="occasion">Occasion</label>
-      <select value={occasion} onChange={e=>setOccasion(e.target.value)} id="occasion">
+      <select 
+        {...formik.getFieldProps('occasion')}
+        id="occasion"
+      >
           <option value="Choose Occasion">Choose Occassion</option>
           <option value='Birthday'>Birthday</option>
           <option value='Anniversary'>Anniversary</option>
       </select>
-      <input type="submit" value="Make Your reservation"></input>
+      {formik.errors.occasion && formik.touched.occasion && <div className='alert alert-danger'>{formik.errors.occasion}</div>}
+      <input className='btn' type="submit" value="Make Your reservation"></input>
       </form>
     </div>
   )

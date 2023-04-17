@@ -1,6 +1,6 @@
 import './App.scss';
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // Components
 import Header from './components/Header'
@@ -8,12 +8,10 @@ import Footer from './components/Footer';
 import Main from './components/Main';
 import Nav from './components/Nav';
 import About from './components/About';
-import Homepage from './components/Homepage';
 import CallToAction from './components/CallToAction';
 import BookingPage from './components/BookingPage';
 import Specials from './components/Specials';
 import ConfirmBooking from './components/ConfirmBooking';
-
 
 
 function App() {
@@ -28,7 +26,7 @@ function App() {
           <Route path="bookings" element={<BookingPage/>} />
           <Route path="CallToAction" element={<CallToAction/>} />
           <Route path="home" element={<Main/>} />
-          <Route path="Specials" element={<Specials/>} />
+          <Route path="specials" element={<Specials/>} />
           <Route path='booking-confirmation' element={<ConfirmBooking/>}/>
         </Routes>
         <Footer />
